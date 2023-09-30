@@ -9,7 +9,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 playerVelocity, testDirection;
     private Vector2 lastInput, lastInputFr;
     private bool isGrounded, hasLastInputFr = false;
-    public float speed = 5f;
+    public float speed = 500f;
     public float gravity = -9.8f;
 
     public bool hasCollided = false;
@@ -20,10 +20,11 @@ public class PlayerMotor : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         isGrounded = controller.isGrounded;
         GlobalVariables.Timer(ref hasCollided, ref collisionLockoutTime);
@@ -39,7 +40,7 @@ public class PlayerMotor : MonoBehaviour
             // x and y are values from -1, 1
             testDirection.x = lastInputFr.x * -1;
             testDirection.z = lastInputFr.y * -1;
-            rb.AddForce(testDirection * 1000 * Time.deltaTime);
+            rb.AddForce(testDirection * speed);
         }
     }
 
@@ -58,13 +59,14 @@ public class PlayerMotor : MonoBehaviour
         } 
         
         Vector3 moveDirection = Vector3.zero;
-        moveDirection.x = input.x;
-        moveDirection.z = input.y;
-        controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
-        playerVelocity.y += gravity * Time.deltaTime;
-        if(isGrounded && playerVelocity.y < 0) 
-            playerVelocity.y = -2f;
-        controller.Move(playerVelocity * Time.deltaTime);
+
+        moveDirection = transform.right * input.x + transform.forward * input.y;
+        rb.AddForce(moveDirection.normalized * speed, ForceMode.Acceleration);
+        //controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
+        //playerVelocity.y += gravity * Time.deltaTime;
+        //if(isGrounded && playerVelocity.y < 0) 
+        //    playerVelocity.y = -2f;
+        //controller.Move(playerVelocity * Time.deltaTime);
     }
 
     public void OnTriggerEnter(Collider other)
