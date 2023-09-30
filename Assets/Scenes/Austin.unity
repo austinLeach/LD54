@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 379595107}
   - component: {fileID: 379595106}
   - component: {fileID: 379595105}
+  - component: {fileID: 379595109}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -228,6 +229,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &379595109
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379595104}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!20 &432984442 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5473781361613186043, guid: 0dfe5732553c09b49ad9cfd2afd18e8d, type: 3}
@@ -345,7 +373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: -9.8
   hasCollided: 0
   collisionLockoutTime: 1
 --- !u!114 &2048099826
@@ -394,10 +421,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8313647
+  m_Radius: 0.5000002
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: -0.033806503, y: 0, z: -0.06834471}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2048099833
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -407,7 +434,7 @@ Rigidbody:
   m_GameObject: {fileID: 2048099824}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.59
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -443,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5903248094581812472, guid: 642612133660e9340a4d2c1049835d5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55446637
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5903248094581812472, guid: 642612133660e9340a4d2c1049835d5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -477,6 +504,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8015132740059989485, guid: 642612133660e9340a4d2c1049835d5f, type: 3}
+      propertyPath: m_Drag
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015132740059989485, guid: 642612133660e9340a4d2c1049835d5f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -498,6 +533,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1867834299576414995, guid: 0dfe5732553c09b49ad9cfd2afd18e8d, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8363232789682540311, guid: 0dfe5732553c09b49ad9cfd2afd18e8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

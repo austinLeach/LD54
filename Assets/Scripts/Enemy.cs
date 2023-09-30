@@ -24,30 +24,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GlobalVariables.Timer(ref hasCollided, ref collisionLockoutTime);
-        if (hasCollided)
-        {
-
-            testDirection = Vector3.zero;
-            // x and y are values from -1, 1
-            // currently going off of the objects rotation
-            testDirection.x = playerInput.x;
-            testDirection.z = playerInput.y;
-            rb.AddForce(testDirection*1000*Time.deltaTime);
-        }
+        
     }
 
-    public void CollidedWithPlayer(Vector2 input)
-    {
-        hasCollided = true;
-        collisionLockoutTime = 1f;
-        playerInput = input;
-    }
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("herererer");
         if (other.gameObject.tag == "Player")
         {
+            Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
+            otherRb.AddExplosionForce(300f, GetComponent<Collider>().ClosestPointOnBounds(transform.position), 5);
         }
         
     }
