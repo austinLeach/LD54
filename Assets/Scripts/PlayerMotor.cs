@@ -6,9 +6,6 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Rigidbody rb;
-    private Vector3 playerVelocity, testDirection;
-    private Vector2 lastInput, lastInputFr;
-    private bool isGrounded, hasLastInputFr = false;
     public float speed = 500f;
 
     public bool hasCollided = false;
@@ -28,17 +25,10 @@ public class PlayerMotor : MonoBehaviour
         
     }
 
-    public void getLastInput(Vector2 input)
-    {
-        lastInput = input;
-    }
-
     // recieves input from InputManager.cs and applies it to character controller
     public void ProcessMove(Vector2 input) 
     {   
-        Vector3 moveDirection = Vector3.zero;
-
-        moveDirection = transform.right * input.x + transform.forward * input.y;
+        Vector3 moveDirection = transform.right * input.x + transform.forward * input.y;
         rb.AddForce(moveDirection.normalized * speed, ForceMode.Acceleration);
     }
 

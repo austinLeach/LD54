@@ -10,22 +10,33 @@ public class Enemy : MonoBehaviour
     public bool hasCollided = false;
     public float collisionLockoutTime = 1f;
     private Rigidbody rb;
-    private Vector3 testDirection;
     public float speed = 5f;
     public Vector2 playerInput;
+    public Transform target;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        target = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        transform.LookAt(target);
+        Vector3 direction = (target.position - this.transform.position).normalized;
+            
+        rb.AddForce(direction.normalized *  speed, ForceMode.Acceleration);
         
     }
+
+
 
     public void OnTriggerEnter(Collider other)
     {
