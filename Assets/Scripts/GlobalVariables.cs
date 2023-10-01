@@ -16,5 +16,21 @@ public static class GlobalVariables
       return isChanging;
     }
 
-    
+    public static void Bump(Rigidbody rb, Collider other)
+    {
+        float baseBumpForce = 40f;
+        
+        Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
+
+        float TotalCollisionForce = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z) + Mathf.Abs(otherRb.velocity.x) + Mathf.Abs(otherRb.velocity.z);
+
+        float bumpForce = baseBumpForce * TotalCollisionForce;
+        if (bumpForce > 500f)
+        {
+            bumpForce = 500f;
+        }
+        Debug.Log(Mathf.Max(300f, bumpForce));
+        otherRb.AddExplosionForce(Mathf.Max(250f, bumpForce), rb.GetComponent<Collider>().ClosestPointOnBounds(rb.GetComponent<Transform>().transform.position), 5);
+        return;
+    }
 }

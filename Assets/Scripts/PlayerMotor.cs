@@ -6,8 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Rigidbody rb;
-    public float speed = 500f;
-
+    private float speed = 7f;
     public bool hasCollided = false;
     public float collisionLockoutTime = 1f;
 
@@ -36,8 +35,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
-            otherRb.AddExplosionForce(300f, GetComponent<Collider>().ClosestPointOnBounds(transform.position), 5);
+            GlobalVariables.Bump(rb, other);
         }
     }
 }

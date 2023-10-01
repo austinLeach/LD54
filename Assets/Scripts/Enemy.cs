@@ -6,30 +6,40 @@ using UnityEngine.InputSystem.XR;
 
 public class Enemy : MonoBehaviour
 {
-
-    public bool hasCollided = false;
-    public float collisionLockoutTime = 1f;
     private Rigidbody rb;
-    public float speed = 5f;
+    public float speed;
     public Vector2 playerInput;
+    public string targetName = string.Empty;
     public Transform target;
+    public TargetLogic targetLogic;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-    }
+        speed = Random.Range(4f, 6f);
+}
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        target = GameObject.Find("Player").transform;
+        targetName = targetLogic.ChooseTarget(this.gameObject.tag);
+        target = GameObject.Find(targetName).transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.LookAt(target);
+        if (targetName == "NULL")
+        {
+            Debug.Log("TargetNAME IS NULLLFDSFSDF");
+            targetName = targetLogic.ChooseTarget(this.gameObject.name);
+            target = GameObject.Find(targetName).transform;
+        }
+        // locked in order to keep enemy from falling over after target is pushed off
+        Vector3 lockedTarget = target.position;
+        lockedTarget.y = transform.position.y;
+        transform.LookAt(lockedTarget);
         Vector3 direction = (target.position - this.transform.position).normalized;
             
         rb.AddForce(direction.normalized *  speed, ForceMode.Acceleration);
@@ -38,14 +48,11 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-        Debug.Log("herererer");
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
         {
-            Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
-            otherRb.AddExplosionForce(300f, GetComponent<Collider>().ClosestPointOnBounds(transform.position), 5);
+            GlobalVariables.Bump(rb, other);
         }
-        
     }
 }
