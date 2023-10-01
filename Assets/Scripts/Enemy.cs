@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         targetName = targetLogic.ChooseTarget(this.gameObject.name);
         target = GameObject.Find(targetName).transform;
     }
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
         Vector3 lockedTarget = target.position;
         lockedTarget.y = transform.position.y;
         transform.LookAt(lockedTarget);
+        transform.Rotate(-90, transform.rotation.y, transform.rotation.z);
         Vector3 direction = (target.position - this.transform.position).normalized;
 
         rb.AddForce(direction.normalized * speed, ForceMode.Acceleration);
