@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class TargetLogic : MonoBehaviour
 {
@@ -9,15 +10,17 @@ public class TargetLogic : MonoBehaviour
     public PlayerMotor player;
     public List<string> tags = new List<string>();
     bool playerDead = false;
+    public AudioSource deathSource;
+    public AudioClip deathClip;
     private void Awake()
     {
         tags.Add("Player");
         tags.Add("Enemy");
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             tags.Add("Enemy2");
         }
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 6)
         {
             tags.Add("Enemy2");
             tags.Add("Enemy3");
@@ -53,6 +56,10 @@ public class TargetLogic : MonoBehaviour
     {
         if(target == "Player")
         {
+            if (!playerDead)
+            {
+                deathSource.PlayOneShot(deathClip);
+            }
             playerDead = true;
         }
         Debug.Log("Remove: " + target);
