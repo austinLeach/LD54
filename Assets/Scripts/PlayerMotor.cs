@@ -12,6 +12,9 @@ public class PlayerMotor : MonoBehaviour
     public float collisionLockoutTime = 1f;
     bool gameOver = false;
     public AudioSource audio;
+    public AudioSource bumpSource;
+    public AudioClip softBump;
+    public AudioClip hardBump;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +50,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GlobalVariables.Bump(rb, other);
+            GlobalVariables.Bump(rb, other, bumpSource, softBump, hardBump);
         }
     }
 

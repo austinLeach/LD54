@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public static class GlobalVariables
 {
 
     public static float timeInAudio = 0f;
+    public static bool beenBumped = false;
     public static bool Timer(ref bool isChanging, ref float timer) {
       if (isChanging)
       {
@@ -18,7 +20,7 @@ public static class GlobalVariables
       return isChanging;
     }
 
-    public static void Bump(Rigidbody rb, Collider other)
+    public static void Bump(Rigidbody rb, Collider other, AudioSource bumpSource, AudioClip softBump, AudioClip hardBump)
     {
         float baseBumpForce = 40f;
         
@@ -31,14 +33,22 @@ public static class GlobalVariables
         float TotalCollisionForce = colliderForce + otherForce;
 
         float bumpForce = baseBumpForce * TotalCollisionForce;
+
+        AudioClip audio = softBump;
+        if (bumpForce > 300f)
+        {
+            audio = hardBump;
+        }
         if (bumpForce > 500f)
         {
             bumpForce = 500f;
+            
         }
         if (otherForce > colliderForce)
         {
             bumpForce = 250f;
         }
+        bumpSource.PlayOneShot(audio);
         otherRb.AddExplosionForce(Mathf.Max(250f, bumpForce), rb.GetComponent<Collider>().ClosestPointOnBounds(rb.GetComponent<Transform>().transform.position), 5);
         return;
     }

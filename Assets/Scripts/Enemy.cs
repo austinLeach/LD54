@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public TargetLogic targetLogic;
     bool died = false;
+    public AudioSource bumpSource;
+    public AudioClip softBump;
+    public AudioClip hardBump;
 
     private void Awake()
     {
@@ -61,11 +64,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GlobalVariables.Bump(rb, other);
+            GlobalVariables.Bump(rb, other, bumpSource, softBump, hardBump);
         }
         if (other.gameObject.tag == "Enemy")
         {
-            GlobalVariables.Bump(rb, other);
+            GlobalVariables.Bump(rb, other, bumpSource, softBump, hardBump);
         }
 
     }
