@@ -1,22 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TargetLogic : MonoBehaviour
 {
+    public WinScreen winScreen;
+    public PlayerMotor player;
     public List<string> tags = new List<string>();
+    bool playerDead = false;
     private void Awake()
     {
         tags.Add("Player");
         tags.Add("Enemy");
-        tags.Add("Enemy2");
-        tags.Add("Enemy3");
-        tags.Add("Enemy4");
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            tags.Add("Enemy2");
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            tags.Add("Enemy2");
+            tags.Add("Enemy3");
+            tags.Add("Enemy4");
+        }
     }
-    
-    void Start()
+
+
+    private void Update()
     {
-        
+        if (tags.Count == 1 && playerDead == false)
+        {
+            if (tags[0] == "Player")
+            {
+                winScreen.ShowWinScreen();
+                player.StopMovement();
+            }
+        }
     }
 
     public string ChooseTarget(string myTag)
@@ -32,9 +51,9 @@ public class TargetLogic : MonoBehaviour
 
     public void RemoveTarget(string target)
     {
-        for (int i = 0; i < tags.Count; i++)
+        if(target == "Player")
         {
-            Debug.Log(tags[i].ToString());
+            playerDead = true;
         }
         Debug.Log("Remove: " + target);
         for (int i = 0; i < tags.Count; i++) {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerMotor : MonoBehaviour
     private float speed = 7f;
     public bool hasCollided = false;
     public float collisionLockoutTime = 1f;
+    bool gameOver = false;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,7 @@ public class PlayerMotor : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        audio.time = GlobalVariables.timeInAudio;
     }
 
     // Update is called once per frame
@@ -26,9 +30,17 @@ public class PlayerMotor : MonoBehaviour
 
     // recieves input from InputManager.cs and applies it to character controller
     public void ProcessMove(Vector2 input) 
-    {   
-        Vector3 moveDirection = transform.right * input.x + transform.forward * input.y;
-        rb.AddForce(moveDirection.normalized * speed, ForceMode.Acceleration);
+    {
+        if (gameOver)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            Vector3 moveDirection = transform.right * input.x + transform.forward * input.y;
+            rb.AddForce(moveDirection.normalized * speed, ForceMode.Acceleration);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -37,5 +49,10 @@ public class PlayerMotor : MonoBehaviour
         {
             GlobalVariables.Bump(rb, other);
         }
+    }
+
+    public void StopMovement()
+    {
+        gameOver = true;
     }
 }

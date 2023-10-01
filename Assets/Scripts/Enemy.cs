@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public string targetName = string.Empty;
     public Transform target;
     public TargetLogic targetLogic;
+    bool died = false;
 
     private void Awake()
     {
@@ -31,20 +32,27 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (targetName == "NULL")
+        if (died)
         {
-            targetName = targetLogic.ChooseTarget(this.gameObject.name);
-            target = GameObject.Find(targetName).transform;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
-        // locked in order to keep enemy from falling over after target is pushed off
-        Vector3 lockedTarget = target.position;
-        lockedTarget.y = transform.position.y;
-        transform.LookAt(lockedTarget);
-        transform.Rotate(-90, transform.rotation.y, transform.rotation.z);
-        Vector3 direction = (target.position - this.transform.position).normalized;
+        else
+        {
+            if (targetName == "NULL")
+            {
+                targetName = targetLogic.ChooseTarget(this.gameObject.name);
+                target = GameObject.Find(targetName).transform;
+            }
+            // locked in order to keep enemy from falling over after target is pushed off
+            Vector3 lockedTarget = target.position;
+            lockedTarget.y = transform.position.y;
+            transform.LookAt(lockedTarget);
+            transform.Rotate(-90, transform.rotation.y, transform.rotation.z);
+            Vector3 direction = (target.position - this.transform.position).normalized;
 
-        rb.AddForce(direction.normalized * speed, ForceMode.Acceleration);
-
+            rb.AddForce(direction.normalized * speed, ForceMode.Acceleration);
+        }
     }
 
 
@@ -60,5 +68,10 @@ public class Enemy : MonoBehaviour
             GlobalVariables.Bump(rb, other);
         }
 
+    }
+
+    public void Died()
+    {
+        died = true;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class GlobalVariables
 {
+
+    public static float timeInAudio = 0f;
     public static bool Timer(ref bool isChanging, ref float timer) {
       if (isChanging)
       {
