@@ -51,15 +51,12 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Inside on trigger" + other.gameObject.tag);
-
         if (other.gameObject.tag == "Player")
         {
             GlobalVariables.Bump(rb, other);
         }
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("HERERERERERERERERRE");
             GlobalVariables.Bump(rb, other);
         }
 

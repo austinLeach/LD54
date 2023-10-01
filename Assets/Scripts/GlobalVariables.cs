@@ -22,14 +22,21 @@ public static class GlobalVariables
         
         Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
 
-        float TotalCollisionForce = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z) + Mathf.Abs(otherRb.velocity.x) + Mathf.Abs(otherRb.velocity.z);
+        float colliderForce = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z);
+        float otherForce = Mathf.Abs(otherRb.velocity.x) + Mathf.Abs(otherRb.velocity.z);
+
+
+        float TotalCollisionForce = colliderForce + otherForce;
 
         float bumpForce = baseBumpForce * TotalCollisionForce;
         if (bumpForce > 500f)
         {
             bumpForce = 500f;
         }
-        Debug.Log(Mathf.Max(300f, bumpForce));
+        if (otherForce > colliderForce)
+        {
+            bumpForce = 250f;
+        }
         otherRb.AddExplosionForce(Mathf.Max(250f, bumpForce), rb.GetComponent<Collider>().ClosestPointOnBounds(rb.GetComponent<Transform>().transform.position), 5);
         return;
     }
