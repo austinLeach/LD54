@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
-    public AudioSource audio;
     public AudioSource sfx;
     public AudioClip clip;
     private void Start()
     {
-        audio.time = GlobalVariables.timeInAudio;
     }
     public void PlayGame()
     {

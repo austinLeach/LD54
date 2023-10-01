@@ -62,7 +62,6 @@ public class TargetLogic : MonoBehaviour
             }
             playerDead = true;
         }
-        Debug.Log("Remove: " + target);
         for (int i = 0; i < tags.Count; i++) {
             GameObject findingWhoIsFollowing = GameObject.Find(tags[i]);
             string compare;
@@ -81,7 +80,6 @@ public class TargetLogic : MonoBehaviour
         }
         for (int i = 1;i < tags.Count;i++)
         {
-            Debug.Log(tags[i].ToString());
             if (tags[i].ToString() == target)
             {
                 tags.RemoveAt(i);

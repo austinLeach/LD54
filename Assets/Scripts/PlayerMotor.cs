@@ -23,6 +23,7 @@ public class PlayerMotor : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         audio.time = GlobalVariables.timeInAudio;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
