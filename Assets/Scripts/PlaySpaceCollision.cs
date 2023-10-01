@@ -13,6 +13,6 @@ public class PlaySpaceCollision : MonoBehaviour
     {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         rb.useGravity = true;
-        targetLogic.RemoveTarget(other.gameObject.tag);
+        targetLogic.RemoveTarget(other.gameObject.name);
     }
 }

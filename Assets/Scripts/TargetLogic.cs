@@ -21,14 +21,12 @@ public class TargetLogic : MonoBehaviour
 
     public string ChooseTarget(string myTag)
     {
-        Debug.Log("CHOOSETARGET" + myTag);
         string targetTag = "";
         do
         {
             targetTag = tags[Random.Range(0, tags.Count)];
         } while (myTag == targetTag);
 
-        Debug.Log("TargetTag" + targetTag);
         return targetTag;
     }
 

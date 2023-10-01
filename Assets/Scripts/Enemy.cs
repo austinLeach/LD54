@@ -17,13 +17,13 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         speed = Random.Range(4f, 6f);
-}
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        targetName = targetLogic.ChooseTarget(this.gameObject.tag);
+        targetName = targetLogic.ChooseTarget(this.gameObject.name);
         target = GameObject.Find(targetName).transform;
     }
 
@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     {
         if (targetName == "NULL")
         {
-            Debug.Log("TargetNAME IS NULLLFDSFSDF");
             targetName = targetLogic.ChooseTarget(this.gameObject.name);
             target = GameObject.Find(targetName).transform;
         }
@@ -41,18 +40,34 @@ public class Enemy : MonoBehaviour
         lockedTarget.y = transform.position.y;
         transform.LookAt(lockedTarget);
         Vector3 direction = (target.position - this.transform.position).normalized;
-            
-        rb.AddForce(direction.normalized *  speed, ForceMode.Acceleration);
-        
+
+        rb.AddForce(direction.normalized * speed, ForceMode.Acceleration);
+
     }
 
 
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        Debug.Log("Inside on trigger" + other.gameObject.tag);
+
+        if (other.gameObject.tag == "Player")
         {
             GlobalVariables.Bump(rb, other);
         }
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("HERERERERERERERERRE");
+            GlobalVariables.Bump(rb, other);
+        }
+
     }
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        Debug.Log("HERERERERERERERERRE");
+    //        //GlobalVariables.Bump(rb, collision);
+    //    }
+    //}
 }
