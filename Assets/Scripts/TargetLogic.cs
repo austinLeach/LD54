@@ -53,12 +53,12 @@ public class TargetLogic : MonoBehaviour
                 findingWhoIsFollowing.GetComponent<Enemy>().targetName = "NULL";
             }
         }
-        for (int i = 0;i < tags.Count;i++)
+        for (int i = 1;i < tags.Count;i++)
         {
             Debug.Log(tags[i].ToString());
             if (tags[i].ToString() == target)
             {
-               // tags.RemoveAt(i);
+                tags.RemoveAt(i);
                 break;
             }
         }

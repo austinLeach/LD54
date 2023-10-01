@@ -64,12 +64,4 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Enemy")
-    //    {
-    //        Debug.Log("HERERERERERERERERRE");
-    //        //GlobalVariables.Bump(rb, collision);
-    //    }
-    //}
 }
