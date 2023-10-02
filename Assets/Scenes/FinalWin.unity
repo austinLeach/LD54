@@ -943,8 +943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 299}
-  m_SizeDelta: {x: 1123.1893, y: 523.2656}
+  m_AnchoredPosition: {x: 0.000013351, y: 262}
+  m_SizeDelta: {x: 2243.1895, y: 777.5186}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807163037
 MonoBehaviour:
@@ -966,10 +966,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'more birb lore
-
-
-    lore it up'
+  m_text: CAWGRADULATION YOU'RE AT THE PEAK OF THE PECKING ORDER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -996,8 +993,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.74
-  m_fontSizeBase: 73.74
+  m_fontSize: 178.6
+  m_fontSizeBase: 178.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
