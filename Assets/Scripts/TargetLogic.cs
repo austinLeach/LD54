@@ -11,9 +11,12 @@ public class TargetLogic : MonoBehaviour
     public List<string> tags = new List<string>();
     bool playerDead = false;
     public AudioSource deathSource;
+    public AudioSource mainAudioLoop;
     public AudioClip deathClip;
+    public AudioClip deathSong;
     private void Awake()
     {
+        mainAudioLoop.Play();
         tags.Add("Player");
         tags.Add("Enemy");
         if (SceneManager.GetActiveScene().buildIndex == 4)
@@ -26,6 +29,13 @@ public class TargetLogic : MonoBehaviour
             tags.Add("Enemy2");
             tags.Add("Enemy3");
             tags.Add("Enemy4");
+            tags.Add("Enemy5");
+            tags.Add("Enemy6");
+            tags.Add("Enemy7");
+            tags.Add("Enemy8");
+            tags.Add("Enemy9");
+            tags.Add("Enemy10");
+
         }
     }
 
@@ -60,6 +70,8 @@ public class TargetLogic : MonoBehaviour
             if (!playerDead)
             {
                 deathSource.PlayOneShot(deathClip);
+                deathSource.PlayOneShot(deathSong);
+                mainAudioLoop.Pause();
             }
             playerDead = true;
         }

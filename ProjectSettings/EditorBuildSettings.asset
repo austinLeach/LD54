@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Fight2.unity
     guid: 61572be86f876044e8a0c1c989c00cb2
   - enabled: 1
+    path: Assets/Scenes/Inbetween3.unity
+    guid: 88118caad483ef043a245197fd0ac7a8
+  - enabled: 1
+    path: Assets/Scenes/FINAL FIGHT.unity
+    guid: 9d9cd60f6bf92dc43ab78314f8b21810
+  - enabled: 1
     path: Assets/Scenes/FinalWin.unity
     guid: ac7100c0f3fba604498fa742460d27ed
   m_configObjects: {}
