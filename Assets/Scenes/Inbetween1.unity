@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -156}
-  m_SizeDelta: {x: 335.6722, y: 62.9385}
+  m_AnchoredPosition: {x: -7, y: -235}
+  m_SizeDelta: {x: 745.5012, y: 139.7833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286700019
 MonoBehaviour:
@@ -714,8 +714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.205017, y: 2.9302979}
-  m_SizeDelta: {x: 16.4099, y: 5.8607}
+  m_AnchoredPosition: {x: -1.2568359, y: -1.8331909}
+  m_SizeDelta: {x: 2.5134, y: -3.6664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925075647
 MonoBehaviour:
@@ -730,15 +730,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 27ffbb4c02cfb454787ffd18445e93f5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -943,8 +943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -67}
-  m_SizeDelta: {x: 651.188, y: 600.2556}
+  m_AnchoredPosition: {x: 1, y: 68}
+  m_SizeDelta: {x: 1300.6068, y: 1198.8804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807163037
 MonoBehaviour:
@@ -968,15 +968,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Controls
 
+
     WASD to move
 
     Use Mouse to look around
 
-    Be the last
-    bird standing
-
-
-    birb lore'
+    Be the
+    last bird standing'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1003,8 +1001,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 109.75
+  m_fontSizeBase: 109.75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1105,7 +1103,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2560, y: 1440}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

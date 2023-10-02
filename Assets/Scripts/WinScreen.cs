@@ -13,7 +13,7 @@ public class WinScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -24,11 +24,13 @@ public class WinScreen : MonoBehaviour
 
     public void ShowWinScreen()
     {
+        Cursor.lockState = CursorLockMode.None;
         winCanvas.SetActive(true);
         Time.timeScale = .5f;
     }
 
-    public void ShowLoseScreen() { 
+    public void ShowLoseScreen() {
+        Cursor.lockState = CursorLockMode.None;
         loseCanvas.SetActive(true);
         Time.timeScale = .5f;
     }
@@ -42,6 +44,7 @@ public class WinScreen : MonoBehaviour
 
     public void RestartLevel()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         GlobalVariables.timeInAudio = audio.time;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -19,6 +19,7 @@ public class TargetLogic : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             tags.Add("Enemy2");
+            tags.Add("Enemy3");
         }
         if (SceneManager.GetActiveScene().buildIndex == 6)
         {
