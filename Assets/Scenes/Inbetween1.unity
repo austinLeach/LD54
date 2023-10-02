@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -973,13 +973,15 @@ MonoBehaviour:
 
     Use Mouse to look around
 
-    Be the
-    last bird standing
+    Ram into
+    birds to push them off
+
+    Be the last bird standing
 
 
-    "WELCOME TO THE NEST KNOCKOUT TORNUMENT! THIS IS A PLACE
-    OF EXTREME BIRD SUMO WHERE YOUNG FLEDGLINGS FIGHT TO THE DEATH IN A HAND CLAPPING
-    BELLY BUMPING BATTLE!"
+    "WELCOME TO THE NEST
+    KNOCKOUT TORNUMENT! THIS IS A PLACE OF EXTREME BIRD SUMO WHERE YOUNG FLEDGLINGS
+    FIGHT TO THE DEATH IN A HAND CLAPPING BELLY BUMPING BATTLE!"
 
 '
   m_isRightToLeft: 0

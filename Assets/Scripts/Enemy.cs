@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        speed = Random.Range(4f, 6f);
+        speed = Random.Range(4.2f, 6f);
     }
 
     // Start is called before the first frame update
