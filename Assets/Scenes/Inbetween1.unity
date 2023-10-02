@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -235}
+  m_AnchoredPosition: {x: -1.2568, y: -486}
   m_SizeDelta: {x: 745.5012, y: 139.7833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286700019
@@ -943,7 +943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 68}
+  m_AnchoredPosition: {x: -120, y: 261}
   m_SizeDelta: {x: 1300.6068, y: 1198.8804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807163037
@@ -974,7 +974,14 @@ MonoBehaviour:
     Use Mouse to look around
 
     Be the
-    last bird standing'
+    last bird standing
+
+
+    "WELCOME TO THE NEST KNOCKOUT TORNUMENT! THIS IS A PLACE
+    OF EXTREME BIRD SUMO WHERE YOUNG FLEDGLINGS FIGHT TO THE DEATH IN A HAND CLAPPING
+    BELLY BUMPING BATTLE!"
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1001,8 +1008,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 109.75
-  m_fontSizeBase: 109.75
+  m_fontSize: 95.8
+  m_fontSizeBase: 95.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1037,7 +1044,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 284.2671}
+  m_margin: {x: -344.3681, y: 0, z: -585.7468, w: -40.790344}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
